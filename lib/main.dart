@@ -18,8 +18,8 @@ class MyApp extends StatelessWidget {
             children: [
               // Ô vuông lớn ở giữa
               const SizedBox(
-                width: 200.0,
-                height: 200.0,
+                width: 250.0,
+                height: 250.0,
               ),
               // Ô vuông nhỏ ở giữa
               Container(
@@ -29,41 +29,41 @@ class MyApp extends StatelessWidget {
               ),
               // Ô vuông ở góc trên bên trái
               Positioned(
-                top: 0,
-                left: 0,
+                top: 10,
+                left: 10,
                 child: Container(
-                  width: 25.0,
-                  height: 25.0,
+                  width: 40.0,
+                  height: 40.0,
                   color: Colors.green,
                 ),
               ),
               // Ô vuông ở góc trên bên phải
               Positioned(
-                top: 0,
-                right: 0,
+                top: 10,
+                right: 10,
                 child: Container(
-                  width: 25.0,
-                  height: 25.0,
+                  width: 40.0,
+                  height: 40.0,
                   color: Colors.green,
                 ),
               ),
               // Ô vuông ở góc dưới bên trái
               Positioned(
-                bottom: 0,
-                left: 0,
+                bottom: 10,
+                left: 10,
                 child: Container(
-                  width: 25.0,
-                  height: 25.0,
+                  width: 40.0,
+                  height: 40.0,
                   color: Colors.green,
                 ),
               ),
               // Ô vuông ở góc dưới bên phải
               Positioned(
-                bottom: 0,
-                right: 0,
+                bottom: 10,
+                right: 10,
                 child: Container(
-                  width: 25.0,
-                  height: 25.0,
+                  width: 40.0,
+                  height: 40.0,
                   color: Colors.green,
                 ),
               ),
@@ -71,8 +71,8 @@ class MyApp extends StatelessWidget {
               Positioned(
                 top: 0.0,
                 child: Container(
-                  width: 25.0,
-                  height: 25.0,
+                  width: 50,
+                  height: 50,
                   color: Colors.green,
                 ),
               ),
@@ -80,8 +80,8 @@ class MyApp extends StatelessWidget {
               Positioned(
                 bottom: 0.0,
                 child: Container(
-                  width: 25.0,
-                  height: 25.0,
+                  width: 50,
+                  height: 50,
                   color: Colors.green,
                 ),
               ),
@@ -89,8 +89,8 @@ class MyApp extends StatelessWidget {
               Positioned(
                 left: 0.0,
                 child: Container(
-                  width: 25.0,
-                  height: 25.0,
+                  width: 50,
+                  height: 50,
                   color: Colors.green,
                 ),
               ),
@@ -98,8 +98,8 @@ class MyApp extends StatelessWidget {
               Positioned(
                 right: 0.0,
                 child: Container(
-                  width: 25.0,
-                  height: 25.0,
+                  width: 50,
+                  height: 50,
                   color: Colors.green,
                 ),
               ),
