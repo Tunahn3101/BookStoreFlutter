@@ -114,9 +114,9 @@ class MyOrderPage extends StatelessWidget {
                 },
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.black,
-                  backgroundColor: Colors.grey[50], // Màu chữ trên nút
+                  backgroundColor: Colors.grey[100], // Màu chữ trên nút
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0), // Bo tròn nút
+                    borderRadius: BorderRadius.circular(10.0), // Bo tròn nút
                   ),
                 ),
                 child: const Padding(
@@ -147,9 +147,9 @@ class MyOrderPage extends StatelessWidget {
                 },
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.black,
-                  backgroundColor: Colors.grey[50], // Màu chữ trên nút
+                  backgroundColor: Colors.grey[100],
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0), // Bo tròn nút
+                    borderRadius: BorderRadius.circular(10.0), // Bo tròn nút
                   ),
                 ),
                 child: const Padding(

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:learn/pages/my_order_page.dart';
 
-class BookCardVertical extends StatelessWidget {
+// ignore: must_be_immutable
+class BookCardVertical extends StatefulWidget {
   const BookCardVertical({
     super.key,
     required this.imageUrl,
@@ -15,18 +16,31 @@ class BookCardVertical extends StatelessWidget {
   final String description;
   final String rating;
 
+  @override
+  State<BookCardVertical> createState() => _BookCardVerticalState();
+}
+
+class _BookCardVerticalState extends State<BookCardVertical> {
   void _openBookDetail(BuildContext context) {
     Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => MyOrderPage(
-          imageUrl: imageUrl,
-          title: title,
-          description: description,
-          rating: rating,
+          imageUrl: widget.imageUrl,
+          title: widget.title,
+          description: widget.description,
+          rating: widget.rating,
         ),
       ),
     );
+  }
+
+  bool isBookmarked = false;
+
+  void _addToBookMark(BuildContext context) {
+    setState(() {
+      isBookmarked = !isBookmarked; // Chuyển đổi trạng thái icon
+    });
   }
 
   @override
@@ -43,7 +57,7 @@ class BookCardVertical extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Image.asset(
-                imageUrl,
+                widget.imageUrl,
                 height: 120,
                 width: 80,
                 fit: BoxFit.cover,
@@ -56,11 +70,11 @@ class BookCardVertical extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      title,
+                      widget.title,
                       style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
                     Text(
-                      description,
+                      widget.description,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -73,12 +87,21 @@ class BookCardVertical extends StatelessWidget {
                         const Icon(Icons.star_half, color: Colors.yellow),
                         const SizedBox(width: 8),
                         Text(
-                          rating,
+                          widget.rating,
                           style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                         const SizedBox(width: 8),
                         const Spacer(),
-                        const Icon(Icons.bookmark_add_outlined),
+                        GestureDetector(
+                            onTap: () {
+                              _addToBookMark(context);
+                            },
+                            child: Icon(
+                              isBookmarked
+                                  ? Icons.bookmark
+                                  : Icons.bookmark_add_outlined,
+                              color: isBookmarked ? Colors.black : null,
+                            )),
                       ],
                     ),
                   ],
