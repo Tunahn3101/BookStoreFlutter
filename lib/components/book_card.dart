@@ -1,27 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:learn/pages/my_order_page.dart';
+import 'package:learn/pages/homepage/model/book_model.dart';
+import 'package:learn/pages/detailsbook/details_book.dart';
+import 'package:learn/ultis/next_screen.dart';
 
 class BookCard extends StatelessWidget {
-  const BookCard(
-      {super.key,
-      required this.imageUrl,
-      required this.title,
-      required this.description});
+  const BookCard({
+    super.key,
+    required this.book,
+  });
 
-  final String imageUrl;
-  final String title;
-  final String description;
+  final BookModel book;
 
   void _openBookDetail(BuildContext context) {
-    Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => MyOrderPage(
-                  imageUrl: imageUrl,
-                  title: title,
-                  description: description,
-                  rating: '',
-                )));
+    nextScreen(
+      context,
+      DetailsBook(
+          imageUrl: book.imageUrl,
+          title: book.title,
+          description: book.description,
+          rating: ''),
+    );
   }
 
   @override
@@ -37,16 +35,16 @@ class BookCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset(
-              imageUrl,
+              book.imageUrl,
               height: 210,
               width: 150,
-              fit: BoxFit.cover,
+              fit: BoxFit.fill,
             ),
             const SizedBox(
               height: 10,
             ),
             Text(
-              title,
+              book.title,
               style: const TextStyle(
                 fontWeight: FontWeight.w700,
                 fontSize: 20,
@@ -56,7 +54,7 @@ class BookCard extends StatelessWidget {
               height: 4,
             ),
             Text(
-              description,
+              book.description,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(

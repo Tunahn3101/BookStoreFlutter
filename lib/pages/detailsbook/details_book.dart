@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:learn/pages/detailsbook/common/action_button.dart';
 import 'package:learn/pages/preview.dart';
 import 'package:learn/pages/reviews.dart';
 
-class MyOrderPage extends StatelessWidget {
-  const MyOrderPage(
+class DetailsBook extends StatelessWidget {
+  const DetailsBook(
       {super.key,
       required this.imageUrl,
       required this.title,
@@ -55,31 +56,11 @@ class MyOrderPage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(
-                Icons.star,
-                color: Colors.yellow,
-                size: 24,
-              ),
-              const Icon(
-                Icons.star,
-                color: Colors.yellow,
-                size: 24,
-              ),
-              const Icon(
-                Icons.star,
-                color: Colors.yellow,
-                size: 24,
-              ),
-              const Icon(
-                Icons.star,
-                color: Colors.yellow,
-                size: 24,
-              ),
-              const Icon(
-                Icons.star_border,
-                color: Colors.yellow,
-                size: 24,
-              ),
+              const Icon(Icons.star, color: Colors.yellow, size: 24),
+              const Icon(Icons.star, color: Colors.yellow, size: 24),
+              const Icon(Icons.star, color: Colors.yellow, size: 24),
+              const Icon(Icons.star, color: Colors.yellow, size: 24),
+              const Icon(Icons.star_border, color: Colors.yellow, size: 24),
               const SizedBox(width: 5),
               Text(
                 rating,
@@ -102,75 +83,33 @@ class MyOrderPage extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const MyPreview()));
-                },
-                style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.black,
-                  backgroundColor: Colors.grey[100], // Màu chữ trên nút
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0), // Bo tròn nút
-                  ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                ActionButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MyPreview()));
+                  },
+                  text: 'Preview',
+                  icon: Icons.align_horizontal_left_outlined,
                 ),
-                child: const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.align_horizontal_left_outlined,
-                        size: 30,
-                      ),
-                      SizedBox(width: 6),
-                      Text(
-                        'Preview',
-                        style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.w600),
-                      ),
-                    ],
-                  ),
+                ActionButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MyReview()));
+                  },
+                  text: 'Reviews',
+                  icon: Icons.chat_outlined,
                 ),
-              ),
-              const SizedBox(width: 50),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const MyReview()));
-                },
-                style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.black,
-                  backgroundColor: Colors.grey[100],
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0), // Bo tròn nút
-                  ),
-                ),
-                child: const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.chat_outlined,
-                        size: 30,
-                      ),
-                      SizedBox(width: 6),
-                      Text(
-                        'Reviews',
-                        style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.w600),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
           const SizedBox(
             height: 30,

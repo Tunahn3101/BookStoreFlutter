@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:learn/pages/my_bookmark.dart';
-import 'package:learn/pages/my_cart.dart';
-import 'package:learn/pages/my_home_screen.dart';
-import 'package:learn/pages/my_settings.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+import 'my_bookmark.dart';
+import 'my_cart_screen.dart';
+import 'homepage/my_home_screen.dart';
+import 'my_settings_screen.dart';
+
+class UIBottomNavigation extends StatefulWidget {
+  const UIBottomNavigation({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<UIBottomNavigation> createState() => _UIBottomNavigationState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _UIBottomNavigationState extends State<UIBottomNavigation> {
   int _selectedIndex = 0;
   final List<Widget> _pages = [
     const MyHomeScreen(),
     const MyBookMark(),
-    const MyCart(),
-    const MySettings()
+    const MyCartScreen(),
+    const MySettingsScreen()
   ];
   void _onItemTapped(int index) {
     setState(() {
@@ -30,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       body: _pages[_selectedIndex],
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.only(bottom: 10, left: 20, right: 20),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(20),
           child: BottomNavigationBar(
@@ -45,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Icons.home_outlined,
                 ),
                 label: 'Home',
-                backgroundColor: Color.fromARGB(255, 216, 133, 55),
+                backgroundColor: Colors.amber,
               ),
               BottomNavigationBarItem(
                 icon: Icon(
