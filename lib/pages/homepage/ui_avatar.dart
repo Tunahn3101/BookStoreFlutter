@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn/common/app_image.dart';
 
 class UIAvatar extends StatefulWidget {
   const UIAvatar({super.key});
@@ -21,7 +22,6 @@ class _UIAvatarState extends State<UIAvatar> {
   void dispose() {
     searchFocusNode.dispose();
     super.dispose();
-    
   }
 
   @override
@@ -42,14 +42,12 @@ class _UIAvatarState extends State<UIAvatar> {
       });
     }
 
-
-
     return Row(
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(10),
           child: Image.asset(
-            'lib/images/avatar.jpg',
+            AppImages.avatar,
             height: 50,
           ),
         ),
@@ -70,6 +68,7 @@ class _UIAvatarState extends State<UIAvatar> {
           Container(
             width: 150,
             margin: const EdgeInsets.symmetric(horizontal: 10),
+            color: Theme.of(context).colorScheme.primary,
             child: TextField(
               focusNode: searchFocusNode,
               onSubmitted: (_) => endSearch(),

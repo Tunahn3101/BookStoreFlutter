@@ -39,9 +39,15 @@ class MyBookMark extends StatelessWidget {
             return Column(
               children: [
                 ListTile(
-                  title: Text(exp.title),
-                  subtitle: Text(exp.date.toString()),
-                  trailing: Text('\$${exp.amount.toStringAsFixed(2)}'),
+                  title: Text(
+                    exp.title,
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyMedium
+                        ?.copyWith(color: Colors.white),
+                  ),
+                  subtitle: Text(DateFormat('dd-MM-yyyy').format(exp.date)),
+                  trailing: Text('\$${exp.amount.toStringAsFixed(1)}'),
                 ),
                 const SizedBox(height: 4),
                 Row(
