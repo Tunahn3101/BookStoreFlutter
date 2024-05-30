@@ -21,6 +21,7 @@ class _UIAvatarState extends State<UIAvatar> {
   void dispose() {
     searchFocusNode.dispose();
     super.dispose();
+    
   }
 
   @override
@@ -40,6 +41,8 @@ class _UIAvatarState extends State<UIAvatar> {
         FocusScope.of(context).unfocus();
       });
     }
+
+
 
     return Row(
       children: [

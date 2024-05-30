@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:learn/pages/inputtextfield/full_screen_modal.dart';
+import 'package:learn/pages/inputtextfield/input_textfield.dart';
+import 'package:learn/pages/inputtextfield/new_expense.dart';
+import 'package:learn/pages/inputtextfield/validate_forrm_input.dart';
 import 'package:learn/pages/mutatingvalues/mutating_values.dart';
 import 'package:learn/pages/results/results_screen.dart';
 import 'package:learn/ultis/next_screen.dart';
+
+import 'inputtextfield/result_expense.dart';
 
 class MyCartScreen extends StatelessWidget {
   const MyCartScreen({super.key});
@@ -30,6 +36,18 @@ class MyCartScreen extends StatelessWidget {
     List<String> names = ['Alice', 'Bob', 'Charlie'];
     List<Widget> nameWidgets = names.map((name) => Text(name)).toList();
     List<Widget> moreWidgets = [const Text('David'), const Text('Eve')];
+
+    // phương thức hiển thị toàn màn hình
+    void showFullScreenModal(BuildContext context) {
+      showModalBottomSheet(
+        context: context,
+        isScrollControlled: true,
+        builder: (context) {
+          return const FullscreenModal();
+        },
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('MyCart'),
@@ -60,6 +78,26 @@ class MyCartScreen extends StatelessWidget {
               },
               child: const Text('Result Screen'),
             ),
+            ElevatedButton(
+                onPressed: () {
+                  nextScreen(context, const InputTextField());
+                },
+                child: const Text('Input textField')),
+            ElevatedButton(
+                onPressed: () {
+                  nextScreen(context, const ValidateFormInput());
+                },
+                child: const Text('Validate Form Input')),
+            ElevatedButton(
+                onPressed: () {
+                  nextScreen(context, const ResultExpense());
+                },
+                child: const Text('tạo mới expense')),
+            ElevatedButton(
+                onPressed: () {
+                  showFullScreenModal(context);
+                },
+                child: const Text('Modal FullScreen'))
           ],
         ),
       ),
