@@ -35,13 +35,13 @@ class _MutatingValuesState extends State<MutatingValues> {
 
   void _incrementCounter() {
     setState(() {
-      _counter++;
+      ++_counter;
     });
   }
 
   void _decrementCounter() {
     setState(() {
-      _counter--;
+      --_counter;
     });
   }
 

@@ -64,6 +64,8 @@ class _InputTextFieldState extends State<InputTextField> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // được sử dụng để chỉ định liệu cần resize màn hình để tránh bàn phím ảo hay không mặc định là true
+      resizeToAvoidBottomInset: true,
       appBar: AppBar(
         title: const Text('Input textfield'),
         centerTitle: true,

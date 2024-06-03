@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:learn/pages/inputtextfield/full_screen_modal.dart';
 import 'package:learn/pages/inputtextfield/input_textfield.dart';
-import 'package:learn/pages/inputtextfield/new_expense.dart';
 import 'package:learn/pages/inputtextfield/validate_forrm_input.dart';
+import 'package:learn/pages/layoutbuilder/layoutbuilder.dart';
 import 'package:learn/pages/mutatingvalues/mutating_values.dart';
 import 'package:learn/pages/results/results_screen.dart';
+import 'package:learn/pages/using_keys/todo_list_item.dart';
+import 'package:learn/pages/usingdismiss/dismissed.dart';
+import 'package:learn/tablescreen/table_screen.dart';
 import 'package:learn/ultis/next_screen.dart';
 
+import 'chart_screen/charts_screen.dart';
 import 'inputtextfield/result_expense.dart';
 
 class MyCartScreen extends StatelessWidget {
@@ -97,7 +101,32 @@ class MyCartScreen extends StatelessWidget {
                 onPressed: () {
                   showFullScreenModal(context);
                 },
-                child: const Text('Modal FullScreen'))
+                child: const Text('Modal FullScreen')),
+            ElevatedButton(
+                onPressed: () {
+                  nextScreen(context, const Dismissedd());
+                },
+                child: const Text('using dismissed')),
+            ElevatedButton(
+                onPressed: () {
+                  nextScreen(context, const ChartsScreen());
+                },
+                child: const Text('using wwidget chart')),
+            ElevatedButton(
+                onPressed: () {
+                  nextScreen(context, const LayoutBuilderScreen());
+                },
+                child: const Text('using layoutbuilder')),
+            ElevatedButton(
+                onPressed: () {
+                  nextScreen(context, const TableScreen());
+                },
+                child: const Text('using table')),
+            ElevatedButton(
+                onPressed: () {
+                  nextScreen(context, const TodoListScreen());
+                },
+                child: const Text('using keys in listTitle'))
           ],
         ),
       ),

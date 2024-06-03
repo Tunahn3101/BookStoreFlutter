@@ -27,6 +27,30 @@ class _UIBottomNavigationState extends State<UIBottomNavigation> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      var platform = Theme.of(context).platform;
+      print('Platform: $platform');
+      if (platform == TargetPlatform.android) {
+        print('This is an Android device');
+      } else if (platform == TargetPlatform.iOS) {
+        print('This is an iOS device');
+      } else if (platform == TargetPlatform.fuchsia) {
+        print('This is a Fuchsia device');
+      } else if (platform == TargetPlatform.linux) {
+        print('This is a Linux device');
+      } else if (platform == TargetPlatform.macOS) {
+        print('This is a macOS device');
+      } else if (platform == TargetPlatform.windows) {
+        print('This is a Windows device');
+      } else {
+        print('Unknown platform');
+      }
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: _pages[_selectedIndex],
